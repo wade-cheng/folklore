@@ -47,7 +47,7 @@
 
 
     header: context smallcaps({
-      let heading-content = hydra(1)
+      let heading-content = hydra(1, display: (_ctx, c) => c.body) // ignore chapter numbering if it exists
       if heading-content == none {
         return
       }
@@ -87,16 +87,13 @@
   )
 
   show heading: it => {
-    pagebreak(weak: true)
-
     block(
       align(
         {
           // note: outline doesn't supply numbering
           set text(weight: "regular", size: 2em)
           set par(justify: false, first-line-indent: 0em)
-          v(0.3in)
-          smallcaps(text(it, size: 1em))
+          smallcaps(text(it.body, size: 1em))
 
           v(0.6in)
         },
@@ -108,6 +105,10 @@
   }
 
   {
+    show heading: it => {
+      pagebreak(weak: true)
+      it
+    }
     // front matter
     set page(numbering: none, header: none)
 
@@ -197,10 +198,15 @@
           it.inner()
         }
 
-        link(
+        smallcaps(link(
           it.element.location(),
-          par(hanging-indent: 2em, first-line-indent: 0pt)[#inner],
-        )
+          {
+            place(dx: -100% - 5pt, align(right, box(smallcaps(it.prefix()), width: 100%)))
+            par(hanging-indent: 2em, first-line-indent: 0pt)[
+              #inner
+            ]
+          },
+        ))
       }
 
       // less space between toc heading and toc
@@ -231,7 +237,7 @@
     set page(header: none)
     counter(page).update(1)
     [
-      = preface
+      = Preface
       #preface
     ]
   }
@@ -243,16 +249,21 @@
 
   pagebreak()
 
-  show heading: it => if recto-chapter-start {
-    {
+  show heading: it => context {
+    if recto-chapter-start {
       set page(header: none)
       pagebreak(weak: true, to: "odd")
     }
-    it
-  } else {
+
+    pagebreak(weak: true)
+    align(smallcaps(text(size: 2.5em, weight: "regular")[#counter(heading).display("i")]), center)
+    v(0.1in)
+
     it
   }
 
+  set heading(numbering: "i")
+  counter(heading).update(0)
   counter(page).update(1)
   doc
 }
