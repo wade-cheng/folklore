@@ -134,7 +134,13 @@
       align(
         box({
           {
-            show title: set text(weight: "regular", style: "italic", size: 1.5em, font: "Perpetua", ..title-text-settings)
+            show title: set text(
+              weight: "regular",
+              style: "italic",
+              size: 1.5em,
+              font: "Perpetua",
+              ..title-text-settings,
+            )
             align(title(), center)
           }
 
