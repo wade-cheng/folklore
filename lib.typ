@@ -105,12 +105,12 @@
     )
   }
 
+  // front matter
   {
     show heading: it => {
       pagebreak(weak: true)
       it
     }
-    // front matter
     set page(numbering: none, header: none)
 
     if custom-work-half-title != none {
