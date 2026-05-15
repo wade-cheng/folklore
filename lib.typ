@@ -259,12 +259,14 @@
     }
 
     pagebreak(weak: true)
-    if number-chapters {
-      align(smallcaps(text(size: 2.5em, weight: "regular")[#counter(heading).display("i")]), center)
-      v(0.1in)
-    }
+    block({
+      if number-chapters {
+        align(smallcaps(text(size: 2.5em, weight: "regular")[#counter(heading).display("i")]), center)
+        v(0.1in)
+      }
 
-    it
+      it
+    })
   }
 
   set heading(numbering: "i")
