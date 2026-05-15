@@ -1,4 +1,4 @@
-#import "@local/folklore:0.1.0": setup, author-notes, major-break
+#import "@preview/folklore:0.2.0": setup, author-notes, major-break
 
 #show: setup.with(
   work-title: [example book with some long title],
@@ -22,7 +22,7 @@
   Notice how chapters start on the recto side of the spread by default.
 ]
 
-#lorem(200)
+#lorem(150)
 
 #author-notes[
   This is an example of an author's note at the end of a chapter.
