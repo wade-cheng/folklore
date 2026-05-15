@@ -23,13 +23,14 @@ All `folklore` parameters and their defaults are listed below.
 
 ```typ
 #show: setup.with(
-  doc,
   work-title: [],
   custom-work-half-title: [],
   work-author: [],
   copyright-page: [],
   preface: [],
+  preface-heading: [preface],
   recto-toc: true,
+  number-chapters: true,
   blank-pages-after-toc: 0,
   blank-pages-before-start: 0,
   recto-chapter-start: true,
