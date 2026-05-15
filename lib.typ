@@ -7,6 +7,7 @@
   preface: [],
   preface-heading: [preface],
   recto-toc: true,
+  number-chapters: true,
   blank-pages-after-toc: 0,
   blank-pages-before-start: 0,
   recto-chapter-start: true,
@@ -200,7 +201,9 @@
         smallcaps(link(
           it.element.location(),
           {
-            place(dx: -100% - 5pt, align(right, box(smallcaps(it.prefix()), width: 100%)))
+            if number-chapters {
+              place(dx: -100% - 5pt, align(right, box(smallcaps(it.prefix()), width: 100%)))
+            }
             par(hanging-indent: 2em, first-line-indent: 0pt)[
               #inner
             ]
@@ -256,8 +259,10 @@
     }
 
     pagebreak(weak: true)
-    align(smallcaps(text(size: 2.5em, weight: "regular")[#counter(heading).display("i")]), center)
-    v(0.1in)
+    if number-chapters {
+      align(smallcaps(text(size: 2.5em, weight: "regular")[#counter(heading).display("i")]), center)
+      v(0.1in)
+    }
 
     it
   }
