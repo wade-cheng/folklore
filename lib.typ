@@ -260,6 +260,7 @@
 
     pagebreak(weak: true)
     block({
+      v(7%)
       if number-chapters {
         align(smallcaps(text(size: 2.5em, weight: "regular")[#counter(heading).display("i")]), center)
         v(0.1in)
