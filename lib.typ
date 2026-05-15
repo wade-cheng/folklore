@@ -270,6 +270,11 @@
     })
   }
 
+  {
+    set page(header: none)
+    pagebreak(weak: true, to: "odd")
+  }
+
   set heading(numbering: "i")
   counter(heading).update(0)
   counter(page).update(1)
