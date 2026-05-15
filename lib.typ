@@ -5,6 +5,7 @@
   work-author: [],
   copyright-page: [],
   preface: [],
+  preface-heading: [preface],
   recto-toc: true,
   blank-pages-after-toc: 0,
   blank-pages-before-start: 0,
@@ -190,10 +191,8 @@
       ))
       show outline.entry: it => {
         // preface in toc should be the only thing on its line---no page num nor dots
-        let inner = if it.element.body == [Preface] {
-          [Preface]
-        } else if it.element.body == [preface] {
-          [preface]
+        let inner = if it.element.body == preface-heading {
+          preface-heading
         } else {
           it.inner()
         }
@@ -238,7 +237,7 @@
     set page(header: none)
     counter(page).update(1)
     [
-      = preface
+      = #preface-heading
       #preface
     ]
   }
