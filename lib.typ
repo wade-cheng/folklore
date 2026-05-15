@@ -229,6 +229,7 @@
   }
 
   for _ in range(blank-pages-after-toc) {
+    set page(header: none)
     pagebreak()
   }
 
