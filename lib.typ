@@ -20,7 +20,7 @@
 
   set document(
     title: work-title,
-    author: work-author.text,
+    // author: work-author.text, // this is a bad hack. it fails on author: [].
   )
 
   set text(
