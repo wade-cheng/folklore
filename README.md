@@ -2,6 +2,46 @@
 
 `folklore` is a template for typesetting fiction novels, with facilities for author commentary.
 
+```typ
+#import "@preview/folklore:TODO": setup, author-notes, major-break
+
+#show: setup.with(
+  work-title: [example book with some long title],
+  work-author: [ex. author],
+  copyright-page: [
+    Made with love---as per yuʒ.
+  ],
+  blank-pages-after-toc: 1,
+  preface: [
+    This is a book! It's made for the physical page, so view with even spreads in your PDF viewer of choice. Each page is half-letter sized by default.
+
+    I hope you like it! :3
+  ],
+)
+
+= it begins
+
+#author-notes[
+  Boxes!
+]
+
+#lorem(50)
+
+#major-break
+
+
+#lorem(50)
+
+#major-break
+
+
+#lorem(50)
+
+= and so on
+
+#lorem(50)
+```
+
 ## Components
 
 `folklore` provides some components useful for typesetting books.
