@@ -54,6 +54,8 @@
         return
       }
 
+      set par(justify: false)
+
       let pagenum = [#counter(page).at(here()).at(0)]
       let spacer = [#sym.space.nobreak#sym.space.nobreak|#sym.space.nobreak#sym.space.nobreak]
 
